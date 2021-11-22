@@ -5,12 +5,12 @@ const resolvers ={
         id:(parent,args,context,info)=>parent.id,
         email:(parent)=>parent.email,
         fullname:(parent)=>parent.fullname,
-        dep:(parent)=>parent.dep,
+        dept:(parent)=>parent.dept,
         enrolled:(parent)=>parent.enrolled
     },
 
     Query:{
-          enrollment:(parent,args)=>{
+        enrollment:(parent,args)=>{
               return students.filter((student)=>student.enrolled)
           },
           students:(parent,args)=>{
@@ -21,10 +21,10 @@ const resolvers ={
     Mutation:{
         registerStudent:(parent,args)=>{
             students.push({
-                id:students.length +1,
+                id:students.length + 1,
                 email:args.email,
-                fullName:args.fullName,
-                dep:args.dep,
+                fullname:args.fullname,
+                dept:args.dept,
                 enrolled:false
             })
             return students[students.length -1]
